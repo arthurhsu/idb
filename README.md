@@ -1,0 +1,4 @@
+idb
+===
+
+IndexedDB playground
