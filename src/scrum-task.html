@@ -1,0 +1,24 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="scrum-task">
+  <style>
+    :host {
+      display: block;
+      width: 100px;
+      height: 100px;
+      background-color: yellow;
+    }
+  </style>
+  <template>
+    <span>{{title}}</span>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'scrum-task',
+    properties: {
+      title: String
+    }
+  });
+</script>
