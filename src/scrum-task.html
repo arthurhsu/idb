@@ -4,13 +4,23 @@
   <style>
     :host {
       display: block;
-      width: 100px;
-      height: 100px;
-      background-color: yellow;
+      width: 200px;
+      height: 200px;
+      background-color: #00cc00;
+      font-family: Roboto, Helvetica, Arial;
+    }
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .desc {
+      font-size: 14px;
     }
   </style>
   <template>
-    <span>{{title}}</span>
+    <span class="title">Task <span>{{_id}}</span>: P<span>{{_pri}}</span></span>
+    <br/>
+    <span class="desc">{{_desc}}</span>
   </template>
 </dom-module>
 
@@ -18,7 +28,9 @@
   Polymer({
     is: 'scrum-task',
     properties: {
-      title: String
+      _id: Number,
+      _desc: String,
+      _pri: Number
     }
   });
 </script>

@@ -1,0 +1,30 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="scrum-panel">
+  <style>
+    :host {
+      display: block;
+      width: 240px;
+      height: 800px;
+      background-color: #cccccc;
+      font-family: Roboto, Helvetica, Arial;
+    }
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+  <template>
+    <div class="title">{{_title}}</div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'scrum-panel',
+    properties: {
+      _title: String
+    }
+  });
+</script>
