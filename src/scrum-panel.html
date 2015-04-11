@@ -15,8 +15,9 @@
       text-align: center;
     }
   </style>
-  <template>
+  <template repeat="{{t in _tasks}}">
     <div class="title">{{_title}}</div>
+    <scrum-task _id="{{t.id}}" _desc="{{t.desc}}" _pri="{{t.pri}}"></scrum-task>
   </template>
 </dom-module>
 
@@ -24,7 +25,19 @@
   Polymer({
     is: 'scrum-panel',
     properties: {
-      _title: String
+      _title: String,
+      _tasks: Array
+    },
+    created: function() {
+      console.log('panel created');
+    },
+    ready: function() {
+      console.log('panel ready');
+      this._tasks = [{
+        id: 1,
+        desc: "install polymer",
+        pri: 1
+      }];
     }
   });
 </script>

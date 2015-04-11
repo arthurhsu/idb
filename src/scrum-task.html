@@ -31,6 +31,13 @@
       _id: Number,
       _desc: String,
       _pri: Number
+    },
+    created: function() {
+      console.log('task created');
+    },
+    ready: function() {
+      console.log('task ready');
+      console.log(this._id, this._desc, this._pri);
     }
   });
 </script>
