@@ -1,4 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="scrum-task.html">
 
 <dom-module id="scrum-panel">
   <style>
@@ -17,7 +18,7 @@
   </style>
   <template repeat="{{t in _tasks}}">
     <div class="title">{{_title}}</div>
-    <scrum-task _id="{{t.id}}" _desc="{{t.desc}}" _pri="{{t.pri}}"></scrum-task>
+    <scrum-task _id="{{t.id}}" _desc="{{t.desc}}" _pri="{{t.pri}}" _eta="{{t.eta}}" _done="{{t.done}}"></scrum-task>
   </template>
 </dom-module>
 
@@ -34,9 +35,11 @@
     ready: function() {
       console.log('panel ready');
       this._tasks = [{
-        id: 1,
+        id: 't1',
         desc: "install polymer",
-        pri: 1
+        pri: 1,
+        eta: new Date(),
+        done: false,
       }];
     }
   });

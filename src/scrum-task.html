@@ -13,13 +13,11 @@
       font-size: 16px;
       font-weight: bold;
     }
-    .desc {
-      font-size: 14px;
-    }
   </style>
   <template>
     <span class="title">Task <span>{{_id}}</span>: P<span>{{_pri}}</span></span>
     <br/>
+    ETA:&nbsp;<span>{{_eta}}</span>
     <span class="desc">{{_desc}}</span>
   </template>
 </dom-module>
@@ -28,16 +26,18 @@
   Polymer({
     is: 'scrum-task',
     properties: {
-      _id: Number,
+      _id: String,
       _desc: String,
-      _pri: Number
+      _eta: Date,
+      _pri: Number,
+      _done: Boolean
     },
     created: function() {
       console.log('task created');
     },
     ready: function() {
       console.log('task ready');
-      console.log(this._id, this._desc, this._pri);
+      console.log(this._id, this._desc, this._pri, this._eta, this._done);
     }
   });
 </script>

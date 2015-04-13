@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Unit Test for Data</title>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/lovefield/dist/lovefield.min.js"></script>
+
+    <style>
+      .b {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="src/data-lf.js"></script>
+    <script src="src/test.js"></script>
+    <div class="b">
+      <div>id: <input type="text" id="id" /></div>
+      <div>desc: <input type="text" id="desc" /></div>
+      <div>eta: <input type="text" id="eta" /></div>
+      <div>pri: <select id="pri"></select></div>
+      <div>done: <input type="checkbox" id="done" /></div>
+      <input id="add" type="button" value="Add" />
+    </div>
+    <hr/>
+    <ol id="task"></ol>
+  </body>
+</html>
