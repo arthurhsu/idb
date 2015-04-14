@@ -1,7 +1,11 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-header-panel/core-header-panel.html">
+<link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../bower_components/core-list/core-list.html">
+<link rel="import" href="../bower_components/core-image/core-image.html">
 <link rel="import" href="scrum-task.html">
 
-<polymer-element name="scrum-panel" attributes="tasks _title">
+<polymer-element name="scrum-panel" attributes="tasks _title" layout vertical>
   <template>
     <style>
       :host {
@@ -15,19 +19,28 @@
         font-weight: bold;
         text-align: center;
       }
-      scrum-task {
+      .item {
         padding: 20px 18px 20px;
       }
     </style>
-    <div class="title">{{_title}}</div>
-    <div vertical layout>
-      <template repeat="{{item in tasks}}">
-        <scrum-task task="{{item}}"></scrum-task>
-      </template>
-    </div>
+    <core-header-panel id="hPanel" flex>
+      <core-toolbar><span flex>{{_title}}</span></core-toolbar>
+      <core-list id="list" data="{{tasks}}" flex>
+        <template>
+          <div class="item">
+            <scrum-task task="{{model}}"></scrum-task>
+          </div>
+        </template>
+      </core-list>
+    </core-header-panel>
+
   </template>
   <script>
-    Polymer('scrum-panel', {
+    Polymer({
+      ready: function() {
+        console.log(this.tasks);
+        this.$.list.scrollTarget = this.$.hPanel.scroller;
+     }
     });
   </script>
 </polymer-element>

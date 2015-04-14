@@ -8,7 +8,7 @@
       display: block;
       width: 200px;
       height: 200px;
-      background-color: #00cc00;
+      background-color: #ffffc0;
       font-family: Roboto, Helvetica, Arial;
     }
     .title {
@@ -19,7 +19,7 @@
     <paper-shadow z="2">
     <span class="title">Task <span>{{task.id}}</span>: P<span>{{task.pri}}</span></span>
     <br/>
-    ETA:&nbsp;<span>{{task.eta}}</span>
+    ETA:&nbsp;<span>{{eta}}</span>
     Owner:&nbsp;<span>{{task.owner}}</span>
     <br/><br/>
     <span class="desc">{{task.desc}}</span>
@@ -27,6 +27,9 @@
   </template>
   <script>
     Polymer('scrum-task', {
+      taskChanged: function(oldValue, newValue) {
+        this.eta = this.task.eta.toLocaleDateString();
+      }
     });
   </script>
 </polymer-element>
