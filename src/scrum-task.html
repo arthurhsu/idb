@@ -10,19 +10,50 @@
       height: 200px;
       background-color: #ffffc0;
       font-family: Roboto, Helvetica, Arial;
+      position: relative;
     }
     .title {
       font-size: 16px;
       font-weight: bold;
     }
+    .header-footer {
+      height: 1.2em;
+      overflow: hidden;
+      font-size: .8em;
+      font-weight: bold;
+    }
+    .pri-tag {
+      background-color: #ffc82c;
+      color: #fff;
+      float: left;
+      margin: 0;
+    }
+    .task-id {
+      padding-left: 10px;
+    }
+    .bottom {
+      position: absolute;
+      bottom: 0;
+    }
+    .right {
+      position: absolute;
+      right: 0;
+    }
+    .desc {
+      padding: 5px;
+    }
     </style>
     <paper-shadow z="2">
-    <span class="title">Task <span>{{task.id}}</span>: P<span>{{task.pri}}</span></span>
-    <br/>
-    ETA:&nbsp;<span>{{eta}}</span>
-    Owner:&nbsp;<span>{{task.owner}}</span>
-    <br/><br/>
-    <span class="desc">{{task.desc}}</span>
+      <div class=card">
+        <div class="header-footer">
+          <span class="pri-tag">P{{task.pri}}</span>
+          <span class="task-id">{{task.id}}</span>
+        </div>
+        <div class="desc"><span>{{task.desc}}</span></div>
+        <div class="header-footer">
+          <div class="bottom">ETA:&nbsp;{{eta}}</div>
+          <div class="bottom right">{{task.owner}}</div>
+        </div>
     </paper-shadow>
   </template>
   <script>
