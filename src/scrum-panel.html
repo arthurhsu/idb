@@ -1,46 +1,33 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="scrum-task.html">
 
-<dom-module id="scrum-panel">
-  <style>
-    :host {
-      display: block;
-      width: 240px;
-      height: 800px;
-      background-color: #cccccc;
-      font-family: Roboto, Helvetica, Arial;
-    }
-    .title {
-      font-size: 16px;
-      font-weight: bold;
-      text-align: center;
-    }
-  </style>
-  <template repeat="{{t in _tasks}}">
+<polymer-element name="scrum-panel" attributes="tasks _title">
+  <template>
+    <style>
+      :host {
+        display: block;
+        width: 240px;
+        height: 800px;
+        font-family: Roboto, Helvetica, Arial;
+      }
+      .title {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+      }
+      scrum-task {
+        padding: 20px 18px 20px;
+      }
+    </style>
     <div class="title">{{_title}}</div>
-    <scrum-task _id="{{t.id}}" _desc="{{t.desc}}" _pri="{{t.pri}}" _eta="{{t.eta}}" _done="{{t.done}}"></scrum-task>
+    <div vertical layout>
+      <template repeat="{{item in tasks}}">
+        <scrum-task task="{{item}}"></scrum-task>
+      </template>
+    </div>
   </template>
-</dom-module>
-
-<script>
-  Polymer({
-    is: 'scrum-panel',
-    properties: {
-      _title: String,
-      _tasks: Array
-    },
-    created: function() {
-      console.log('panel created');
-    },
-    ready: function() {
-      console.log('panel ready');
-      this._tasks = [{
-        id: 't1',
-        desc: "install polymer",
-        pri: 1,
-        eta: new Date(),
-        done: false,
-      }];
-    }
-  });
-</script>
+  <script>
+    Polymer('scrum-panel', {
+    });
+  </script>
+</polymer-element>

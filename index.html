@@ -3,10 +3,18 @@
   <head>
     <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
     <link rel="import" href="src/scrum-panel.html">
-    <link rel="import" href="src/scrum-task.html">
+    <style>
+      scrum-panel {
+        border: 1px solid red;
+      }
+    </style>
   </head>
   <body>
-    <scrum-panel _title="Started Task"></scrum-panel>
+    <div horizontal layout>
+      <scrum-panel id="ns" _title="Not Started"></scrum-panel>
+      <scrum-panel id="working" _title="Working"></scrum-panel>
+    </div>
+    <script src="src/mock_data.js"></script>
   </body>
 </html>
 

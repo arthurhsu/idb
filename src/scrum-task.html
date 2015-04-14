@@ -1,8 +1,10 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-shadow/paper-shadow.html">
 
-<dom-module id="scrum-task">
-  <style>
-    :host {
+<polymer-element name="scrum-task" attributes="task">
+  <template>
+    <style>
+    paper-shadow {
       display: block;
       width: 200px;
       height: 200px;
@@ -13,31 +15,18 @@
       font-size: 16px;
       font-weight: bold;
     }
-  </style>
-  <template>
-    <span class="title">Task <span>{{_id}}</span>: P<span>{{_pri}}</span></span>
+    </style>
+    <paper-shadow z="2">
+    <span class="title">Task <span>{{task.id}}</span>: P<span>{{task.pri}}</span></span>
     <br/>
-    ETA:&nbsp;<span>{{_eta}}</span>
-    <span class="desc">{{_desc}}</span>
+    ETA:&nbsp;<span>{{task.eta}}</span>
+    Owner:&nbsp;<span>{{task.owner}}</span>
+    <br/><br/>
+    <span class="desc">{{task.desc}}</span>
+    </paper-shadow>
   </template>
-</dom-module>
-
-<script>
-  Polymer({
-    is: 'scrum-task',
-    properties: {
-      _id: String,
-      _desc: String,
-      _eta: Date,
-      _pri: Number,
-      _done: Boolean
-    },
-    created: function() {
-      console.log('task created');
-    },
-    ready: function() {
-      console.log('task ready');
-      console.log(this._id, this._desc, this._pri, this._eta, this._done);
-    }
-  });
-</script>
+  <script>
+    Polymer('scrum-task', {
+    });
+  </script>
+</polymer-element>

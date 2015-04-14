@@ -16,8 +16,10 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#0.8",
-    "core-elements": "Polymer/core-elements#0.8-preview",
-    "paper-button": "Polymer/paper-button#0.8-preview"
+    "polymer": "Polymer/polymer#^0.5",
+    "core-elements": "Polymer/core-elements#^0.5",
+    "font-roboto": "Polymer/font-roboto",
+    "paper-button": "Polymer/paper-button#^0.5",
+    "paper-shadow": "Polymer/paper-shadow#^0.5"
   }
 }
