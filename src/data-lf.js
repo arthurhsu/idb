@@ -36,6 +36,7 @@ var DB = new function() {
           from(t).
           where(t.done.eq(false)).
           orderBy(t.eta).
+          orderBy(t.pri, lf.Order.DESC).
           exec();
     }.bind(this));
   };
