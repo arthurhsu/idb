@@ -4,7 +4,7 @@
 <link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 
-<polymer-element name="scrum-filter" attributes="owners">
+<polymer-element name="scrum-filter" attributes="owners priorities uiModel">
   <template>
     <style>
       paper-dropdown-menu {
@@ -23,18 +23,18 @@
     </style>
     <paper-dropdown-menu label="Filter By Owners">
       <paper-dropdown class="dropdown">
-        <core-menu class="menu">
+        <core-menu class="menu" on-core-select="{{onOwnerChange}}">
           <template repeat="{{owners}}">
-            <paper-item>{{}}</paper-item>
+          <paper-item name="{{}}">{{}}</paper-item>
           </template>
         </core-menu>
       </paper-dropdown>
     </paper-dropdown-menu>
     <paper-dropdown-menu label="Filter By Priorities">
       <paper-dropdown class="dropdown">
-        <core-menu class="menu">
+        <core-menu class="menu" on-core-select="{{onPriChange}}">
           <template repeat="{{priorities}}">
-            <paper-item>{{}}</paper-item>
+            <paper-item name="{{}}">{{}}</paper-item>
           </template>
         </core-menu>
       </paper-dropdown>
@@ -42,14 +42,14 @@
   </template>
   <script>
     Polymer('scrum-filter', {
-      created: function() {
-        this.priorities = [
-          'All',
-          'P0', 'P1', 'P2', 'P3', 'P4'
-        ];
-      },
       ready: function() {
-        console.log('filter', this.owners);
+        console.log('filter', this.owners, this.priorities);
+      },
+      onOwnerChange: function(e, details) {
+        this.uiModel.owner = details.item.getAttribute('name');
+      },
+      onPriChange: function(e, details) {
+        this.uiModel.priority = details.item.getAttribute('name');
       }
     });
   </script>
