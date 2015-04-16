@@ -1,0 +1,56 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-menu/core-menu.html">
+<link rel="import" href="../bower_components/paper-dropdown/paper-dropdown.html">
+<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+
+<polymer-element name="scrum-filter" attributes="owners">
+  <template>
+    <style>
+      paper-dropdown-menu {
+        box-sizing: border-box;
+        width: 170px;
+      }
+      core-menu {
+        box-sizing: border-box;
+        width: 170px;
+      }
+      paper-item {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    </style>
+    <paper-dropdown-menu label="Filter By Owners">
+      <paper-dropdown class="dropdown">
+        <core-menu class="menu">
+          <template repeat="{{owners}}">
+            <paper-item>{{}}</paper-item>
+          </template>
+        </core-menu>
+      </paper-dropdown>
+    </paper-dropdown-menu>
+    <paper-dropdown-menu label="Filter By Priorities">
+      <paper-dropdown class="dropdown">
+        <core-menu class="menu">
+          <template repeat="{{priorities}}">
+            <paper-item>{{}}</paper-item>
+          </template>
+        </core-menu>
+      </paper-dropdown>
+    </paper-dropdown-menu>
+  </template>
+  <script>
+    Polymer('scrum-filter', {
+      created: function() {
+        this.priorities = [
+          'All',
+          'P0', 'P1', 'P2', 'P3', 'P4'
+        ];
+      },
+      ready: function() {
+        console.log('filter', this.owners);
+      }
+    });
+  </script>
+</polymer-element>

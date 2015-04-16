@@ -14,7 +14,9 @@
 
   var panelNs = document.getElementById('ns');
   var panelWorking = document.getElementById('working');
+  var filter = document.getElementById('filter');
 
   panelNs.tasks = tasks.slice(0, 4);
   panelWorking.tasks = tasks.slice(5);
+  filter.owners = owners;
 })();

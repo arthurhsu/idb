@@ -36,7 +36,7 @@
 
   </template>
   <script>
-    Polymer({
+    Polymer('scrum-panel', {
       ready: function() {
         console.log(this.tasks);
         this.$.list.scrollTarget = this.$.hPanel.scroller;
