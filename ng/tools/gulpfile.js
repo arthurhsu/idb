@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var shell = require('gulp-shell');
-var del = require('del');
 var concat = require('gulp-concat');
 var runSequence = require('run-sequence');
 
@@ -27,14 +26,11 @@ gulp.task('build:shim', function() {
     .pipe(gulp.dest('../dist/'));
 });
 
+// Copy lovefield to dist
+gulp.task('build:lovefield', shell.task(['sh cp_lovefield.sh']));
+
 // Delete to start fresh
-gulp.task('clean', function(cb) {
-  del([
-    './angular2',
-    './rtts_assert',
-    './dist'
-  ], cb);
-});
+gulp.task('clean', shell.task(["sh clean.sh"]));
 
 // Synchronous build
 //  1. clean
@@ -44,6 +40,7 @@ gulp.task('default', function(cb) {
   runSequence('clean',
       'build:ng2',
       'build:shim',
-      'build:strip_maps',
+//      'build:strip_maps',
+      'build:lovefield',
       cb);
 });
