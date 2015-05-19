@@ -78,6 +78,6 @@ movie.db.createSchema_ = function() {
 
 
 /** @return {!IThenable.<!lf.Database>} */
-movie.db.connect = function() {
-  return movie.db.createSchema_().connect();
+movie.db.connect = function(opt_options) {
+  return movie.db.createSchema_().connect(opt_options);
 };
