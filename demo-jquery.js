@@ -37,10 +37,7 @@ function main() {
   var options = undefined;
   if (navigator.userAgent.indexOf('Safari') != -1) {
     // Apple Safari
-    options = {
-      storeType: lf.schema.DataStoreType.WEB_SQL,
-      webSqlDbSize: 4000000
-    };
+    options = { storeType: lf.schema.DataStoreType.MEMORY };
   }
   return movie.db.connect(options).then(function(database) {
     db = database;
