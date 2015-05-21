@@ -14,13 +14,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/*
 goog.provide('movie.db');
 goog.provide('movie.db.schema.Actor');
 goog.provide('movie.db.schema.Director');
 
 goog.require('lf.Type');
 goog.require('lf.schema');
-
+*/
+var movie = { db: {} };
 
 /**
  * @return {!lf.schema.Builder}
