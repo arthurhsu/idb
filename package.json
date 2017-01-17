@@ -1,0 +1,17 @@
+{
+  "name": "bench",
+  "version": "1.0.0",
+  "description": "Bench for sql.js and sqlite3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "async": "^2.1.4",
+    "sql.js": "^0.4.0",
+    "sqlite3": "^3.1.8",
+    "tmp": "0.0.31"
+  }
+}
